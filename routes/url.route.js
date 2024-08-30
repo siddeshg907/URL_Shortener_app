@@ -1,6 +1,6 @@
 import express from 'express';
 import shortid from 'shortid';
-import { UrlModel } from '../model/url.model.js'; // Ensure correct path
+import { UrlModel } from '../model/url.model.js'; 
 import { auth } from "../middleware/auth.middleware.js";
 
 const urlRouter = express.Router();
@@ -12,7 +12,7 @@ async function handleGenerateShortId(req, res) {
     
     const shortID = shortid.generate();
     const newUrl = new UrlModel({ shortId: shortID, originalUrl: body.url ,shortUrl:`http://localhost:8080/url/${shortID}`});
-    await newUrl.save(); // Save the document to the database
+    await newUrl.save(); 
     
     return res.json({originalUrl:body.url, Shorturl:`http://localhost:8080/url/${shortID}` });
     } catch (error) {
