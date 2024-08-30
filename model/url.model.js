@@ -1,15 +1,21 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const urlSchema = new mongoose.Schema({
-    userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+const urlSchema = new mongoose.Schema(
+  {
+    userID: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
     shortId: { type: String, required: true, unique: true },
     originalUrl: { type: String, required: true },
-    shortUrl: { type: String, required: true }
+    shortUrl: { type: String, required: true },
+  },
+  {
+    versionKey: false,
+  }
+);
 
-}, {
-    versionKey: false
-});
-
-const UrlModel = mongoose.model('Url', urlSchema);
+const UrlModel = mongoose.model("Url", urlSchema);
 
 export { UrlModel };
