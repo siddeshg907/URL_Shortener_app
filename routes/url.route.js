@@ -15,13 +15,13 @@ async function handleGenerateShortId(req, res) {
       userID,
       shortId: shortID,
       originalUrl: url,
-      shortUrl: `http://localhost:8080/url/${shortID}`,
+      shortUrl: `https://url-shortener-app-653d.onrender.com/url/${shortID}`,
     });
     await newUrl.save();
 
     return res.json({
       originalUrl: url,
-      Shorturl: `http://localhost:8080/url/${shortID}`,
+      Shorturl: `https://url-shortener-app-653d.onrender.com/url/${shortID}`,
     });
   } catch (error) {
     return res.json({ msg: error.message });
